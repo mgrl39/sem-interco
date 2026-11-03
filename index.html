@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Codi 3 SEM</title>
+  <meta name="description" content="Aprèn el Codi 3 del SEM i el codi INTERCO jugant: repetició espaiada, nivells, ratxes i reptes.">
+  <meta name="theme-color" content="#0b1220">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23ffd60a'/><text x='32' y='46' font-size='38' font-family='Arial' font-weight='900' text-anchor='middle' fill='%230b1220'>3</text></svg>">
+</head>
+<body>
+  <header class="topbar">
+    <div class="stripe" aria-hidden="true"></div>
+    <div class="topbar-in">
+      <button class="brand" data-act="nav" data-view="home" aria-label="Inici">
+        <span class="brand-badge">3</span>
+        <span class="brand-txt"><b>Codi 3</b><small>SEM · INTERCO</small></span>
+      </button>
+      <div class="hdr-stats">
+        <div class="hchip" id="hStreakChip" title="Ratxa de dies seguits estudiant">
+          <span class="flame">🔥</span><b id="hStreak">0</b>
+        </div>
+        <div class="hchip" title="Objectiu diari d'XP">
+          <svg class="ring" viewBox="0 0 36 36" aria-hidden="true">
+            <circle cx="18" cy="18" r="15" class="ring-bg"/>
+            <circle cx="18" cy="18" r="15" class="ring-fg" id="hGoalRing"/>
+          </svg>
+          <b id="hGoal">0/100</b>
+        </div>
+        <button class="hlvl" data-act="nav" data-view="profile" title="El teu nivell">
+          <span class="hlvl-n" id="hLvl">1</span>
+          <span class="hlvl-bar"><i id="hXp"></i></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="main" tabindex="-1"></main>
+
+  <nav class="tabs" aria-label="Navegació">
+    <button class="tab" data-act="nav" data-view="home">
+      <svg viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg><span>Inici</span>
+    </button>
+    <button class="tab" data-act="nav" data-view="path">
+      <svg viewBox="0 0 24 24"><path d="M6 3v4M6 17v4M18 3v4M18 17v4M6 7c0 5 12 5 12 10M18 7c0 2-1.5 3.3-3.6 4.2M6 17c0-2 1.5-3.3 3.6-4.2"/></svg><span>Camí</span>
+    </button>
+    <button class="tab" data-act="nav" data-view="games">
+      <svg viewBox="0 0 24 24"><path d="M6 9h12a4 4 0 0 1 4 4v1a3 3 0 0 1-5.4 1.8L15 14H9l-1.6 1.8A3 3 0 0 1 2 14v-1a4 4 0 0 1 4-4zM8 11v4M6 13h4M16 12h.01M18 14h.01"/></svg><span>Jocs</span>
+    </button>
+    <button class="tab" data-act="nav" data-view="ref">
+      <svg viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h12v16H6a2 2 0 0 0-2 2zM4 5v16M8 7h6M8 11h6"/></svg><span>Consulta</span>
+    </button>
+    <button class="tab" data-act="nav" data-view="profile">
+      <svg viewBox="0 0 24 24"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM4 21a8 8 0 0 1 16 0"/></svg><span>Perfil</span>
+    </button>
+  </nav>
+
+  <!-- Pantalla de joc -->
+  <section id="quiz" class="quiz" aria-hidden="true">
+    <div class="quiz-top">
+      <button class="icon-btn" data-act="quit" aria-label="Sortir">✕</button>
+      <div class="qbar"><i id="qBar"></i></div>
+      <div class="qhud" id="qHud"></div>
+    </div>
+    <div class="quiz-body" id="qBody"></div>
+    <div class="feedback" id="qFb" role="status" aria-live="polite"></div>
+  </section>
+
+  <!-- Finestra modal -->
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="modal-bg" data-act="closeModal"></div>
+    <div class="modal-card" role="dialog" aria-modal="true">
+      <button class="icon-btn modal-x" data-act="closeModal" aria-label="Tancar">✕</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <div id="toasts" class="toasts" aria-live="polite"></div>
+  <canvas id="confetti" aria-hidden="true"></canvas>
+  <input type="file" id="importFile" accept="application/json,.json" hidden>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
